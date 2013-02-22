@@ -12,7 +12,7 @@ Bundle 'michalbachowski/vim-wombat256mod'
 
 " Universal Syntax Checker + Completion
 Bundle 'jnwhiteh/vim-golang'
-Bundle 'nsf/gocode'
+Bundle 'nsf/gocode', {'rtp': 'vim/'}
 Bundle 'scrooloose/syntastic'
 Bundle 'ervandew/supertab'
 
