@@ -39,4 +39,5 @@ autocmd BufWritePost *.go :silent Fmt
 " SuperTab plugin can be used to avoid needing to press Ctrl-X then Ctrl-O to invoke the popup completion menu. 
 let g:SuperTabDefaultCompletionType = "context"
 
-
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow
