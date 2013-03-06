@@ -11,10 +11,12 @@ Bundle 'gmarik/vundle'
 Bundle 'michalbachowski/vim-wombat256mod'
 
 " Universal Syntax Checker + Completion
-Bundle 'jnwhiteh/vim-golang'
-Bundle 'nsf/gocode', {'rtp': 'vim/'}
 Bundle 'scrooloose/syntastic'
 Bundle 'ervandew/supertab'
+
+" GO support
+Bundle 'jnwhiteh/vim-golang'
+Bundle 'nsf/gocode', {'rtp': 'vim/'}
 
 filetype plugin indent on     " required! 
 syntax on
@@ -33,11 +35,23 @@ try
 catch
 endtry
 
-autocmd BufWritePost *.go :silent Fmt
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Syntastic
+" https://python-guide.readthedocs.org/en/latest/dev/env/
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_auto_loc_list=1
+let g:syntastic_loc_list_height=5
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SuperTab plugin can be used to avoid needing to press Ctrl-X then Ctrl-O to invoke the popup completion menu. 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:SuperTabDefaultCompletionType = "context"
 
-autocmd QuickFixCmdPost [^l]* nested cwindow
-autocmd QuickFixCmdPost    l* nested lwindow
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" GO support
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd BufWritePost *.go :silent Fmt
