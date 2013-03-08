@@ -26,18 +26,32 @@ Bundle 'nvie/vim-flake8'
 filetype plugin indent on     " required! 
 syntax on
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Source: 
+" https://github.com/mbrochh/vim-as-a-python-ide/blob/master/.vimrc
+" https://github.com/yodiaditya/vim-pydjango/blob/master/.vimrc
+" 
+" => General
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" VIM settings
-" Source: https://github.com/mbrochh/vim-as-a-python-ide/blob/master/.vimrc
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
 
-" No sound on errors
-set noerrorbells
-set novisualbell
-set tm=500
+" Disable backup and swap files
+set nobackup
+set nowritebackup
+set noswapfile
+
+" Sets how many lines of history VIM has to remember
+set history=1000
+set undolevels=1000 "maximum number of changes that can be undone
+set undoreload=10000 "maximum number lines to save for undo on a buffer reload
+
+" Set to auto read when a file is changed from the outside
+set autowrite
+
+" Rebind <Leader> key
+let mapleader = ","
 
 " Better copy & paste
 " When you want to paste large blocks of code into vim, press F2 before you
@@ -45,16 +59,23 @@ set tm=500
 set pastetoggle=<F2>
 set clipboard=unnamed
 
+" bind Ctrl+<movement> keys to move around the windows, instead of using
+" Ctrl+w + <movement>
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
 
+" easier moving between tabs
+map <Leader>n <esc>:tabprevious<CR>
+map <Leader>m <esc>:tabnext<CR>
 
-" Mouse and backspace
-set mouse=a
-" "" set bs=2     " make backspace behave like normal again
+" map sort function to a key
+vnoremap <Leader>s :sort<CR>
 
-
-" Rebind <Leader> key
-let mapleader = ","
-
+" easier formatting of paragraphs
+vmap Q gq
+nmap Q gqap
 
 " Bind nohl
 " Removes highlight of your last search
@@ -64,84 +85,69 @@ vnoremap <C-n> :nohl<CR>
 inoremap <C-n> :nohl<CR>
 
 
-" bind Ctrl+<movement> keys to move around the windows, instead of using
-" Ctrl+w + <movement>
-map <c-j> <c-w>j
-map <c-k> <c-w>k
-map <c-l> <c-w>l
-map <c-h> <c-w>h
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Text, tab and indent related
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set textwidth=80
+set smarttab
+set expandtab
+
+set lbr
+set tw=500
+
+set ai "Auto indent
+set si "Smart indet
+set nowrap "Wrap lines
 
 
-" easier moving between tabs
-map <Leader>n <esc>:tabprevious<CR>
-map <Leader>m <esc>:tabnext<CR>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => VIM user interface
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set number
+set so=7            " Set 7 lines to the curors - when moving vertical..
+set ruler           "Always show current position
+set hid             "Change buffer - without saving
+set nohidden
+set mouse=a
+set nolazyredraw "Don't redraw while executing macros 
+set showmatch "Show matching bracets when text indicator is over them
+
+" No sound on errors
+set noerrorbells
+set novisualbell
+set tm=500
+
+"--- search options ------------
+set incsearch       " show 'best match so far' as you type
+set hlsearch        " hilight the items found by the search
+set ignorecase      " ignores case of letters on searches
+set smartcase       " Override the 'ignorecase' option if the search pattern contains upper case characters
 
 
-" map sort function to a key
-vnoremap <Leader>s :sort<CR>
-"
-"
-" " easier moving of code blocks
-" " Try to go into visual mode (v), thenselect several lines of code here and
-" " then press ``>`` several times.
-" "" vnoremap < <gv  " better indentation
-" "" vnoremap > >gv  " better indentation
-"
-"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Colors and Fonts
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Show whitespace
 " MUST be inserted BEFORE the colorscheme command
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 au InsertLeave * match ExtraWhitespace /\s\+$/
 
-" Showing line numbers, length, colors and fonts
-
-set ruler           "Always show current position
-set number  " show line numbers
-set tw=79   " width of document (used by gd)
-set nowrap  " don't automatically wrap on load
-set fo-=t   " don't automatically wrap text when typing
-set colorcolumn=80
-
 set t_Co=256
 color wombat256mod
 highlight ColorColumn ctermbg=233
+set cursorline
+set colorcolumn=80 " Mark 80th column with a red line
+highlight ColorColumn ctermbg=233
+
 
 set encoding=utf8
 try
 	     lang en_US
 catch
 endtry
-
-" easier formatting of paragraphs
-vmap Q gq
-nmap Q gqap
-
-
-" Useful settings
-set history=700
-set undolevels=700
-
-
-" Don't use TABs but spaces
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set shiftround
-set expandtab
-
-
-
-" Make search case insensitive
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
-
-
-" Disable backup and swap files
-set nobackup
-set nowritebackup
-set noswapfile
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
