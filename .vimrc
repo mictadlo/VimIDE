@@ -188,7 +188,7 @@ autocmd BufWritePost *.go :silent Fmt
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Python support
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd BufWritePost *.py call Flake8()
+autocmd BufWritePost *.py !autopep8 -i expand("%")
 
 " Vim-Ipython
 source ~/.vim/bundle/vim-ipython/ftplugin/python/ipy.vim

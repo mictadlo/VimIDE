@@ -1,7 +1,7 @@
 vimrc4GO
 ========
 
-Requirements:
+Requirements for GO:
 
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
@@ -14,3 +14,8 @@ vim .vimrc
 :BundleInstall
 
 
+Requirements for Python:
+
+easy_install --prefix=/home/uqmlore1/apps/pymodules -UZ ipython
+easy_install --prefix=/home/uqmlore1/apps/pymodules -UZ flake8
+easy_install --prefix=/home/uqmlore1/apps/pymodules -UZ autopep8
