@@ -20,7 +20,6 @@ Bundle 'nsf/gocode', {'rtp': 'vim/'}
 
 " Python support
 Bundle 'ivanov/vim-ipython'
-Bundle 'vim-scripts/indentpython.vim'
 Bundle 'nvie/vim-flake8'
 
 filetype plugin indent on     " required! 
@@ -188,7 +187,6 @@ autocmd BufWritePost *.go :silent Fmt
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Python support
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd BufWritePost *.py !autopep8 -i expand("%")
 
 " Vim-Ipython
 source ~/.vim/bundle/vim-ipython/ftplugin/python/ipy.vim
