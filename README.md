@@ -17,5 +17,7 @@ vim .vimrc
 Requirements for Python:
 
 easy_install --prefix=/home/uqmlore1/apps/pymodules -UZ ipython
+
 easy_install --prefix=/home/uqmlore1/apps/pymodules -UZ flake8
+
 easy_install --prefix=/home/uqmlore1/apps/pymodules -UZ autopep8
