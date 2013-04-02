@@ -21,6 +21,7 @@ Bundle 'nsf/gocode', {'rtp': 'vim/'}
 " Python support
 Bundle 'ivanov/vim-ipython'
 Bundle 'nvie/vim-flake8'
+Bundle 'hynek/vim-python-pep8-indent'
 
 filetype plugin indent on     " required! 
 syntax on
