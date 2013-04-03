@@ -73,6 +73,12 @@ map <Leader>m <esc>:tabnext<CR>
 " map sort function to a key
 vnoremap <Leader>s :sort<CR>
 
+" TextMate\u2019s key mappings http://vimcasts.org/episodes/indentation-commands/
+nmap <D-[> <<
+nmap <D-]> >>
+vmap <D-[> <gv
+vmap <D-]> >gv
+
 " easier formatting of paragraphs
 vmap Q gq
 nmap Q gqap
@@ -164,7 +170,7 @@ let g:syntastic_loc_list_height=5
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SuperTab plugin can be used to avoid needing to press Ctrl-X then Ctrl-O to invoke the popup completion menu. 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:SuperTabDefaultCompletionType = "context"
+"let g:SuperTabDefaultCompletionType = "context"
 " Better navigating through omnicomplete option list
 " " See http://stackoverflow.com/questions/2170023/how-to-map-keys-for-popup-menu-in-vim
 " "" set completeopt=longest,menuone
