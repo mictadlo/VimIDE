@@ -74,10 +74,10 @@ map <Leader>m <esc>:tabnext<CR>
 vnoremap <Leader>s :sort<CR>
 
 " TextMate\u2019s key mappings http://vimcasts.org/episodes/indentation-commands/
-nmap <D-[> <<
-nmap <D-]> >>
-vmap <D-[> <gv
-vmap <D-]> >gv
+nmap <c-s-[> <<
+nmap <c-s-]> >>
+vmap <c-s-[> <gv
+vmap <c-s-]> >gv
 
 " easier formatting of paragraphs
 vmap Q gq
