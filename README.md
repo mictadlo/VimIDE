@@ -1,4 +1,4 @@
-vimrc4GO
+VimIDE
 ========
 
 Requirements for GO:
