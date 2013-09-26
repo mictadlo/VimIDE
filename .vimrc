@@ -1,4 +1,4 @@
-filetype off                   " requiired!
+filetype off                   " required!
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -15,10 +15,6 @@ Bundle 'scrooloose/syntastic'
 Bundle 'ervandew/supertab'
 Bundle 'shougo/neocomplcache'
 
-" GO support
-Bundle 'jnwhiteh/vim-golang'
-Bundle 'nsf/gocode', {'rtp': 'vim/'}
-
 " Python support
 Bundle 'ivanov/vim-ipython'
 Bundle 'nvie/vim-flake8'
@@ -26,9 +22,14 @@ Bundle 'hynek/vim-python-pep8-indent'
 
 " JavaScript
 Bundle 'ahayman/vim-nodejs-complete'
+Bundle 'node-inspector/node-inspector'
 Bundle 'jelera/vim-javascript-syntax'
+Bundle 'vim-scripts/JavaScript-Indent'
 Bundle 'walm/jshint.vim'
 Bundle 'teramako/jscomplete-vim'
+
+" HTML
+Bundle 'mattn/emmet-vim'
 
 
 filetype plugin indent on     " required! 
@@ -280,6 +281,7 @@ inoremap <expr><C-e>  neocomplcache#cancel_popup()
 "let g:neocomplcache_disable_auto_complete = 1
 "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
+" 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
@@ -298,3 +300,6 @@ let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
+" jelera/vim-javascript-syntax
+au FileType javascript call JavaScriptFold()
