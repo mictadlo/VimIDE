@@ -28,6 +28,9 @@ Bundle 'vim-scripts/JavaScript-Indent'
 Bundle 'walm/jshint.vim'
 Bundle 'teramako/jscomplete-vim'
 
+" CoffeeScript
+Bundle 'kchmck/vim-coffee-script'
+
 " HTML
 Bundle 'mattn/emmet-vim'
 
@@ -195,12 +198,6 @@ let g:syntastic_loc_list_height=5
 " "" endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" GO support
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd BufWritePost *.go :silent Fmt
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Python support
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -303,3 +300,6 @@ let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 " jelera/vim-javascript-syntax
 au FileType javascript call JavaScriptFold()
+
+" coffeescript
+autocmd BufWritePost *.coffee silent CoffeeMake! -b | cwindow
